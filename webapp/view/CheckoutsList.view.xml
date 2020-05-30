@@ -1,0 +1,72 @@
+<mvc:View
+controllerName="org.ubb.books.controller.BookList"
+   xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+
+   <Table id="idCheckoutsTable"
+		items="{
+			path: '/Checkouts'
+		}"
+		growing="true"  
+		growingThreshold="10">  <!--binding, OData Model; paginare; cate obiecte pe o pagina-->
+
+		<headerToolbar>
+		<Toolbar>
+		<content>
+		</content>
+		</Toolbar>
+		</headerToolbar>
+	
+		<columns>
+			<Column>
+				<Text text="ISBN" />
+			</Column>
+			<Column>
+				<Text text="First Name" />
+			</Column>
+			<Column>
+				<Text text="Last Name" />
+			</Column>
+			<Column>
+				<Text text="Username" />
+			</Column>
+			<Column>
+				<Text text="Checkout Date" />
+			</Column>
+			<Column>
+				<Text text="Return Date" />
+			</Column>
+			<Column>
+				<Text text="Title" />
+			</Column>
+			<Column>
+				<Text text="Author" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						text="{ISBN}"/>
+					<Text text="{FirstName}" />
+					<Text text="{LastName}" />
+					<Text text="{Username}" />
+					<Text text="{ 
+							path: 'CheckoutDate',
+							type: 'sap.ui.model.type.Date'
+               			}" 
+					/>
+					<Text text="{ 
+							path: 'ReturnDate',
+							type: 'sap.ui.model.type.Date'
+               			}" 
+					/>
+					<Text text="{Title}" />
+					<Text text="{Author}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+   
+</mvc:View>
